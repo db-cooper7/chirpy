@@ -29,7 +29,7 @@ func (cfg *apiConfig) handlerGetChirps(w http.ResponseWriter, r *http.Request) {
 func (cfg *apiConfig) handlerGetChirpByID(w http.ResponseWriter, r *http.Request) {
 	chirpID, err := uuid.Parse(r.PathValue("chirpID"))
 	if err != nil {
-		respondWithError(w, http.StatusInternalServerError, "Could not get chirpID", err)
+		respondWithError(w, http.StatusInternalServerError, "Could not get chirpID", nil)
 		return
 	}
 	dbChirp, err := cfg.db.GetChirpByID(r.Context(), chirpID)
