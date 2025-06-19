@@ -34,7 +34,7 @@ func (cfg *apiConfig) handlerGetChirpByID(w http.ResponseWriter, r *http.Request
 	}
 	dbChirp, err := cfg.db.GetChirpByID(r.Context(), chirpID)
 	if err != nil {
-		respondWithError(w, http.StatusInternalServerError, "Could not get chirp", err)
+		respondWithError(w, http.StatusNotFound, "Could not get chirp", err)
 		return
 	}
 
